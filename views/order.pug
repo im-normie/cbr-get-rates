@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  table(style='width:100%', border='1')
+    tr
+      th Номер заказа
+      th Локатор
+      th Фамилия
+      th Имя
+    each passenger in order['orderPassengers']
+      tr
+        td #{order.id}
+        td #{order.locator}
+        td #{passenger.name_second}
+        td #{passenger.name_first}
+  a(href='/orders') К списку заказов

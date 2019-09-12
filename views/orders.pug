@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  table(style='width:100%', border='1')
+    tr
+      th Номер заказа
+      th Локатор
+      th Дата последнего обновления
+      th Стоимость в рублях
+      th Стоимость в валюте заказа
+      th Количество пассажиров
+    each order in orders
+      tr
+        td #{order.id}
+        td
+          a(href='/order/' + order.locator) #{order.locator}
+        td #{order.date_insert.toLocaleString()}
+        td #{order.priceRub.toFixed(2)}
+        td #{order.price} #{order.currency}
+        td #{order.passengerCount}
